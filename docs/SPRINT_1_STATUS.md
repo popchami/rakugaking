@@ -10,7 +10,7 @@ Implementation
 
 ## Status
 
-Started / Initial implementation added / Shrinking ring rule integrated
+Started / Initial implementation added / Shrinking pushing ring rule integrated
 
 ## Implemented Scope
 
@@ -25,6 +25,7 @@ Sprint 1 is limited to:
 - HP system
 - timer
 - shrinking ring rule
+- inward push from ring boundary
 - emergency fall detection
 - simple collision damage
 - simple win/loss/draw result
@@ -64,9 +65,10 @@ Assets/Rakugaking/Prefabs/Battle/Arena.prefab
 4. Confirm the fighters move automatically.
 5. Confirm HP is displayed.
 6. Confirm the timer counts down.
-7. Confirm the shrinking ring rule applies outside-ring HP damage.
-8. Confirm falling far below the arena ends the battle by emergency fall.
-9. Confirm a result is displayed.
+7. Confirm the shrinking ring pushes fighters toward the center when they are outside the current boundary.
+8. Confirm the shrinking ring itself does not directly deal HP damage.
+9. Confirm falling far below the arena ends the battle by emergency fall.
+10. Confirm a result is displayed.
 
 ## Notes
 
@@ -74,7 +76,7 @@ The current auto movement is not the final command system.
 
 It exists only so Sprint 1 can verify that the battle loop works before command programming is implemented.
 
-Ring-out is no longer the main battle rule. The main arena pressure rule is a shrinking ring.
+Ring-out is no longer the main battle rule. The main arena pressure rule is a shrinking ring that pushes fighters toward the center.
 
 ## Known Limitations
 
