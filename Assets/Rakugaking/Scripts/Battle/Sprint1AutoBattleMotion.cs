@@ -15,19 +15,16 @@ namespace Rakugaking.Battle
 
         private void Awake()
         {
-            if (character == null)
-            {
-                character = GetComponent<BattleCharacter>();
-            }
-
-            if (rootBody == null && character != null)
-            {
-                rootBody = character.RootBody;
-            }
+            ResolveReferences();
         }
 
         private void FixedUpdate()
         {
+            if (character == null || rootBody == null)
+            {
+                ResolveReferences();
+            }
+
             if (rootBody == null || character == null || character.Health == null || character.Health.IsDefeated)
             {
                 return;
@@ -42,6 +39,24 @@ namespace Rakugaking.Battle
             elapsed = 0f;
             var direction = character.Side == FighterSide.FighterA ? Vector3.right : Vector3.left;
             rootBody.AddForce(direction * forwardForce + Vector3.up * hopForce, ForceMode.Impulse);
+        }
+
+        private void ResolveReferences()
+        {
+            if (character == null)
+            {
+                character = GetComponent<BattleCharacter>();
+            }
+
+            if (rootBody == null && character != null)
+            {
+                rootBody = character.RootBody;
+            }
+
+            if (rootBody == null)
+            {
+                rootBody = GetComponentInChildren<Rigidbody>();
+            }
         }
     }
 }
