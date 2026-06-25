@@ -8,7 +8,9 @@ The MVP is successful when a player can battle using a character they drew.
 
 The first playable MVP is local-first.
 
-This does not remove online battle, character sharing, or monetization from the product plan. It means the first playable version proves the core fun before adding full online systems.
+This does not remove online battle or monetization from the product plan. It means the first playable version proves the core fun before adding full online systems.
+
+Character sharing is postponed.
 
 ## MVP Scope
 
@@ -98,18 +100,26 @@ Online battle remains in the product plan.
 Implementation staging:
 
 1. local battle
-2. character export/import
-3. shared character download battle
-4. asynchronous online battle
+2. local saved character battle
+3. private room online battle design
+4. random matchmaking design
 5. real-time online battle if technically feasible
 
 This staging is an implementation strategy, not a removal of online battle.
 
 ## Character Sharing Direction
 
-Character sharing remains in the product plan.
+Character sharing is postponed.
 
-The MVP data model should allow a character to be exported, uploaded, downloaded, or shared later.
+Postponed items:
+
+- public character gallery
+- share codes
+- user-facing character export/import
+- browsing other players' characters
+- permanent shared character uploads
+
+Online battle may still require temporary transfer of character data inside a match. This is allowed as part of online battle and is not treated as a sharing feature.
 
 ## Monetization Direction
 
@@ -123,16 +133,19 @@ Possible paid areas:
 - extra body types
 - cosmetic effects
 - special drawing tools
-- online sharing enhancements
 
 Pay-to-win should be avoided.
 
 ## Out of Scope for First Playable MVP
 
-These are not removed from the product. They are delayed until after the first playable MVP unless explicitly approved.
+These are delayed until after the first playable MVP unless explicitly approved.
 
 - direct freeform 3D sculpting
 - real-time online battle
+- character sharing
+- public character gallery
+- share codes
+- user-facing export/import
 - payment implementation
 - story mode
 - campaign mode
@@ -161,11 +174,14 @@ Required quality:
 - `docs/DESIGN_DECISIONS.md`
 - `docs/CHARACTER_SPEC.md`
 - `docs/DRAWING_SPEC.md`
+- `docs/DRAWING_TO_PHYSICS_SPEC.md`
 - `docs/COMMAND_SPEC.md`
 - `docs/BATTLE_SPEC.md`
+- `docs/BALANCE_SPEC.md`
+- `docs/ONLINE_SPEC.md`
 
 ## Remaining Open Questions
 
 - How strongly should drawing size affect physics values?
-- Should saved character sharing use file export, code, or server upload first?
 - What exact Unity networking solution should be used later?
+- What monetization model should be selected later?
