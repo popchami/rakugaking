@@ -14,27 +14,92 @@ Do not start with complex online systems before the core drawing-to-battle loop 
 
 However, do not design the project in a way that blocks online battle, character sharing, or monetization later.
 
-## High-Level Modules
+## First Implementation Architecture
 
-## 1. Drawing Module
+The first implementation should be a local playable prototype.
+
+It should prove this loop:
+
+Draw → Assemble → Command → Battle → Result
+
+## Recommended Unity Folder Structure
+
+```txt
+Assets/
+  Rakugaking/
+    Scenes/
+    Scripts/
+      Core/
+      Drawing/
+      Character/
+      Commands/
+      Battle/
+      SaveData/
+      UI/
+      Shared/
+    Prefabs/
+      Character/
+      Battle/
+      UI/
+    ScriptableObjects/
+      Commands/
+      BodyParts/
+    Materials/
+    Textures/
+    Tests/
+```
+
+## Runtime Modules
+
+## 1. Core Module
+
+Responsibilities:
+
+- application state
+- scene flow
+- common interfaces
+- shared constants
+
+Suggested classes:
+
+- GameFlowController
+- SceneRoute
+- ProjectConstants
+
+## 2. Drawing Module
 
 Responsibilities:
 
 - capture player drawing input
 - store drawing data
-- generate visual body parts
+- generate part textures or simple part shapes
 - provide part preview
 
-## 2. Character Assembly Module
+Suggested classes:
+
+- DrawingCanvasController
+- DrawingInputHandler
+- PartDrawingData
+- PartTextureGenerator
+
+## 3. Character Module
 
 Responsibilities:
 
-- connect drawn parts
+- manage character data
+- connect parts
 - create a physics-based character
-- assign body part metadata
 - prepare character for battle
 
-## 3. Command Module
+Suggested classes:
+
+- CharacterData
+- CharacterPartData
+- CharacterAssembler
+- PhysicsPartBuilder
+- CharacterPreviewController
+
+## 4. Command Module
 
 Responsibilities:
 
@@ -42,16 +107,37 @@ Responsibilities:
 - assign commands to parts
 - execute commands repeatedly during battle
 
-## 4. Battle Module
+Suggested classes:
+
+- CommandDefinition
+- CommandAssignment
+- CommandRunner
+- PunchCommand
+- SwingCommand
+- GuardCommand
+- KickCommand
+- JumpCommand
+- CrouchCommand
+
+## 5. Battle Module
 
 Responsibilities:
 
 - spawn characters
 - run automatic battle
+- manage HP, timer, and ring out
 - evaluate win/loss/draw
-- manage timer and arena rules
 
-## 5. Save Data Module
+Suggested classes:
+
+- BattleController
+- BattleCharacter
+- BattleTimer
+- BattleResultEvaluator
+- HitDetector
+- RingOutDetector
+
+## 6. Save Data Module
 
 Responsibilities:
 
@@ -59,7 +145,36 @@ Responsibilities:
 - load characters
 - prepare export/import format for sharing
 
-## 6. Online Module
+Suggested classes:
+
+- CharacterSaveService
+- CharacterSaveData
+- SaveDataRepository
+- CharacterSerializer
+
+## 7. UI Module
+
+Responsibilities:
+
+- home screen
+- drawing screen
+- command setup screen
+- battle HUD
+- result screen
+
+Suggested classes:
+
+- HomeView
+- DrawingView
+- CommandSetupView
+- BattleHudView
+- ResultView
+
+## 8. Online Module
+
+Status:
+
+- future phase
 
 Responsibilities for future phases:
 
@@ -70,7 +185,11 @@ Responsibilities for future phases:
 
 Online should be planned early but implemented after the local battle loop is validated unless explicitly approved.
 
-## 7. Monetization Module
+## 9. Monetization Module
+
+Status:
+
+- future phase
 
 Responsibilities for future phases:
 
@@ -83,15 +202,19 @@ Monetization must not affect battle strength directly.
 ## Suggested Development Order
 
 1. Unity project setup
-2. simple battle arena
-3. test physics character with placeholder parts
-4. command execution prototype
-5. drawing input prototype
-6. drawing-to-part conversion
-7. local save/load
-8. local character vs character battle
-9. sharing data format
-10. online and monetization design
+2. scene flow skeleton
+3. simple battle arena
+4. placeholder physics humanoid
+5. command execution prototype
+6. battle result logic
+7. drawing input prototype
+8. drawing-to-part visual application
+9. character assembly from drawn parts
+10. local save/load
+11. character vs saved character battle
+12. export/import-ready character data
+13. online/sharing design refinement
+14. monetization design refinement
 
 ## Design Risks
 
@@ -99,12 +222,10 @@ Monetization must not affect battle strength directly.
 
 This is the largest technical risk.
 
-The project must decide whether the MVP uses:
+First MVP decision:
 
-- 2D drawing mapped onto flat 3D parts
-- generated mesh from strokes
-- voxel/clay-like 3D drawing
-- preset 3D parts with drawn textures
+- use 2D drawing applied to simple 3D physics parts
+- do not start with freeform 3D sculpting
 
 ### Physics Stability
 
