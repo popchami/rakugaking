@@ -10,10 +10,12 @@ ADeL Discovery, Bootstrap, and Design phases are complete.
 
 Implementation Phase has started.
 
+Sprint 1 initial implementation has been added to the repository.
+
 ## Current Phase
 
 - Phase: Implementation
-- Status: Started
+- Status: Sprint 1 Initial Implementation Added
 
 ## Completed
 
@@ -24,7 +26,7 @@ Implementation Phase has started.
 - First playable MVP scope decided
 - Drawing method decided for first MVP
 - Humanoid-only first body type decided
-- Command system direction decided
+- Command system direction decided for later phases
 - Battle rules decided
 - Unity implementation structure drafted
 - Scene flow defined
@@ -32,6 +34,9 @@ Implementation Phase has started.
 - Drawing-to-physics rules drafted
 - Balance direction drafted
 - Phase 1 implementation plan created
+- Unity minimum project files added
+- Sprint 1 battle scripts added
+- Sprint 1 scene/prefab builder added
 
 ## Confirmed Decisions
 
@@ -52,6 +57,9 @@ Implementation Phase has started.
 
 ## Explicitly Not Implemented Now
 
+- Drawing features
+- Drawing-to-physics conversion
+- Command system
 - Online battle
 - Payment / shop systems
 - Multiple character species/body types
@@ -59,7 +67,7 @@ Implementation Phase has started.
 - Public character gallery
 - Share codes
 - User-facing export/import
-- Full drawing editor
+- Full UI
 
 ## Important Product Direction
 
@@ -69,45 +77,37 @@ The drawing shape should affect battle behavior.
 
 The player should not need to write code.
 
-## Created Files
+## Current Implementation Files
 
-- README.md
-- docs/PROJECT_STATE.md
-- docs/00_START_HERE.md
-- docs/PROJECT_OVERVIEW.md
-- docs/MVP_SPEC.md
-- docs/FEATURE_SPEC.md
-- docs/DATA_SPEC.md
-- docs/UI_UX_SPEC.md
-- docs/ARCHITECTURE.md
-- docs/AI_RULES.md
-- docs/TEST_PLAN.md
-- docs/HANDOFF.md
-- docs/DESIGN_DECISIONS.md
-- docs/CHARACTER_SPEC.md
-- docs/DRAWING_SPEC.md
-- docs/DRAWING_TO_PHYSICS_SPEC.md
-- docs/COMMAND_SPEC.md
-- docs/BATTLE_SPEC.md
-- docs/BALANCE_SPEC.md
-- docs/ONLINE_SPEC.md
-- docs/MONETIZATION_SPEC.md
-- docs/SCENE_FLOW_SPEC.md
-- docs/UI_WIREFRAME_SPEC.md
-- docs/ASSET_SPEC.md
-- docs/IMPLEMENTATION_READY_CHECKLIST.md
-- docs/IMPLEMENTATION_PHASE_1.md
-- docs/MINIMUM_IMPLEMENTATION_PLAN.md
+- `.gitignore`
+- `Packages/manifest.json`
+- `ProjectSettings/ProjectVersion.txt`
+- `Assets/Rakugaking/README.md`
+- `Assets/Rakugaking/Scripts/Battle/BattleResult.cs`
+- `Assets/Rakugaking/Scripts/Battle/BattleController.cs`
+- `Assets/Rakugaking/Scripts/Battle/BattleTimer.cs`
+- `Assets/Rakugaking/Scripts/Battle/RingOutDetector.cs`
+- `Assets/Rakugaking/Scripts/Battle/Sprint1AutoBattleMotion.cs`
+- `Assets/Rakugaking/Scripts/Battle/Sprint1CollisionDamage.cs`
+- `Assets/Rakugaking/Scripts/Character/Health.cs`
+- `Assets/Rakugaking/Scripts/Character/BattleCharacter.cs`
+- `Assets/Rakugaking/Scripts/UI/BattleHud.cs`
+- `Assets/Rakugaking/Scripts/Editor/Sprint1PrototypeBattleBuilder.cs`
+- `docs/SPRINT_1_STATUS.md`
 
 ## Current Implementation Entry Point
 
-Start with:
+Open the project in Unity and run:
 
-1. `docs/PROJECT_STATE.md`
-2. `docs/MINIMUM_IMPLEMENTATION_PLAN.md`
-3. `docs/IMPLEMENTATION_PHASE_1.md`
-4. `docs/ARCHITECTURE.md`
-5. `docs/TEST_PLAN.md`
+```txt
+Unity Menu > Rakugaking > Sprint 1 > Build Prototype Battle Scene
+```
+
+This generates:
+
+- `Assets/Rakugaking/Scenes/PrototypeBattle.unity`
+- `Assets/Rakugaking/Prefabs/Character/PlaceholderFighter.prefab`
+- `Assets/Rakugaking/Prefabs/Battle/Arena.prefab`
 
 ## Current Implementation Goal
 
@@ -115,6 +115,8 @@ Create a Unity prototype where two placeholder humanoid fighters automatically b
 
 ## Remaining Unknowns
 
+- whether the generated Unity scene compiles and runs without adjustment
+- physics tuning values
 - exact strength of drawing size/shape effects
 - future networking solution
 - final monetization model
@@ -122,6 +124,6 @@ Create a Unity prototype where two placeholder humanoid fighters automatically b
 
 ## Instruction for Next AI
 
-Do not start with online, monetization, multiple species, or full drawing editor.
+Do not start with online, monetization, multiple species, drawing features, drawing-to-physics conversion, command system, or full UI.
 
-Start with the smallest playable Unity physics battle prototype.
+First verify Sprint 1 in Unity.
