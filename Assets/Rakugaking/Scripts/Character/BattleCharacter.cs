@@ -21,6 +21,18 @@ namespace Rakugaking.Character
 
         private void Awake()
         {
+            ResolveReferences();
+        }
+
+        public void Setup(FighterSide fighterSide)
+        {
+            side = fighterSide;
+            ResolveReferences();
+            health?.ResetHp();
+        }
+
+        private void ResolveReferences()
+        {
             if (health == null)
             {
                 health = GetComponentInChildren<Health>();
@@ -30,18 +42,6 @@ namespace Rakugaking.Character
             {
                 rootBody = GetComponentInChildren<Rigidbody>();
             }
-        }
-
-        public void Setup(FighterSide fighterSide)
-        {
-            side = fighterSide;
-
-            if (health == null)
-            {
-                health = GetComponentInChildren<Health>();
-            }
-
-            health?.ResetHp();
         }
 
         public BattleWinner ToWinner()
