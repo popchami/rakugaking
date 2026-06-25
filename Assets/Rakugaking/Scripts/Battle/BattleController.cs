@@ -11,11 +11,10 @@ namespace Rakugaking.Battle
 
         [Header("Rules")]
         [SerializeField] private float battleDurationSeconds = 60f;
-        [SerializeField] private float ringOutY = -3f;
         [SerializeField] private bool autoStart = true;
 
         private BattleTimer timer;
-        private RingOutDetector ringOutDetector;
+        private ShrinkingRingController shrinkingRing;
         private BattleResult result;
         private bool isRunning;
 
@@ -28,14 +27,12 @@ namespace Rakugaking.Battle
         private void Awake()
         {
             timer = new BattleTimer(battleDurationSeconds);
-            ringOutDetector = GetComponent<RingOutDetector>();
+            shrinkingRing = GetComponent<ShrinkingRingController>();
 
-            if (ringOutDetector == null)
+            if (shrinkingRing == null)
             {
-                ringOutDetector = gameObject.AddComponent<RingOutDetector>();
+                shrinkingRing = gameObject.AddComponent<ShrinkingRingController>();
             }
-
-            ringOutDetector.RingOutY = ringOutY;
         }
 
         private void Start()
@@ -54,7 +51,8 @@ namespace Rakugaking.Battle
             }
 
             timer.Tick(Time.deltaTime);
-            CheckRingOut();
+            shrinkingRing.Tick(Time.deltaTime);
+            ApplyShrinkingRingRules();
             CheckHpDefeat();
             CheckTimeUp();
         }
@@ -77,6 +75,7 @@ namespace Rakugaking.Battle
             fighterB.Setup(FighterSide.FighterB);
 
             timer.Reset();
+            shrinkingRing.ResetRing();
             result = new BattleResult(BattleWinner.None, BattleEndReason.None);
             isRunning = true;
         }
@@ -91,16 +90,22 @@ namespace Rakugaking.Battle
             target.Health.ApplyDamage(damage);
         }
 
-        private void CheckRingOut()
+        private void ApplyShrinkingRingRules()
         {
-            if (ringOutDetector.IsRingOut(fighterA))
+            if (shrinkingRing.IsEmergencyFall(fighterA))
             {
-                EndBattle(new BattleResult(BattleWinner.FighterB, BattleEndReason.RingOut));
+                EndBattle(new BattleResult(BattleWinner.FighterB, BattleEndReason.EmergencyFall));
+                return;
             }
-            else if (ringOutDetector.IsRingOut(fighterB))
+
+            if (shrinkingRing.IsEmergencyFall(fighterB))
             {
-                EndBattle(new BattleResult(BattleWinner.FighterA, BattleEndReason.RingOut));
+                EndBattle(new BattleResult(BattleWinner.FighterA, BattleEndReason.EmergencyFall));
+                return;
             }
+
+            shrinkingRing.ApplyOutsideRingDamage(fighterA, Time.deltaTime);
+            shrinkingRing.ApplyOutsideRingDamage(fighterB, Time.deltaTime);
         }
 
         private void CheckHpDefeat()
