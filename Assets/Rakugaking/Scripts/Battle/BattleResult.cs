@@ -4,8 +4,9 @@ namespace Rakugaking.Battle
     {
         None,
         HpZero,
-        RingOut,
-        TimeUp
+        TimeUp,
+        ShrinkingRingDamage,
+        EmergencyFall
     }
 
     public enum BattleWinner
