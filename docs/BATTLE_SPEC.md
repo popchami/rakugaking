@@ -19,8 +19,8 @@ The first playable MVP includes:
 - 1 vs 1 battle
 - local battle
 - humanoid vs humanoid
-- automatic command execution
-- simple arena
+- automatic battle behavior
+- simple shrinking arena
 - clear result
 
 ## Battle Setup
@@ -29,7 +29,7 @@ Before battle:
 
 1. Select Character A.
 2. Select Character B or test opponent.
-3. Confirm commands.
+3. Confirm setup.
 4. Start battle.
 
 ## Arena
@@ -37,8 +37,8 @@ Before battle:
 MVP arena:
 
 - flat platform
-- visible boundaries
-- fall/ring-out area
+- visible shrinking boundary
+- no instant fall-based ring-out as the main rule
 
 Future arenas may add hazards or themes.
 
@@ -50,6 +50,7 @@ Recommended:
 
 - fixed side-view or angled view
 - both characters visible
+- shrinking ring remains visible
 - minimal camera movement
 
 ## Battle Rules
@@ -57,8 +58,8 @@ Recommended:
 A battle ends when one of these happens:
 
 - a character HP reaches 0
-- a character falls out of arena
 - time limit ends
+- optional emergency fall below the stage occurs
 
 If time limit ends:
 
@@ -73,13 +74,42 @@ HP can be reduced by:
 
 - attack collision
 - strong impact
+- being outside the shrinking ring for too long
 - falling impact if needed
 
-## Ring Out Direction
+## Shrinking Ring Direction
 
-Ring out exists to preserve physics comedy.
+The battle area shrinks over time.
 
-A character loses if it falls below the arena or exits the battle area.
+Purpose:
+
+- prevent passive battles
+- force fighters closer together
+- increase contact and chaos near the end
+- avoid instant random defeat from early ring-out
+
+Recommended first values:
+
+```txt
+Start size: 100%
+Shrink start: after 10 seconds
+Minimum size: 50%
+Full shrink time: 60 seconds
+Outside ring: continuous HP damage or strong push inward
+```
+
+Sprint 1 may implement this as a shrinking rectangular platform or visible boundary.
+
+## Emergency Fall Direction
+
+A character falling far below the stage may still trigger defeat as a safety rule.
+
+This is not the main battle mechanic.
+
+Purpose:
+
+- prevent endless falling states
+- end broken physics cases cleanly
 
 ## Time Limit
 
@@ -118,9 +148,8 @@ The first battle system should avoid hard local-only assumptions.
 
 Possible future format:
 
-- download opponent character data
-- simulate battle locally
-- upload result
+- transfer selected character data temporarily inside a match
+- simulate battle
 - later evaluate real-time online if feasible
 
 ## Out of Scope for First MVP
