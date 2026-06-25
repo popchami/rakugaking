@@ -38,6 +38,7 @@ MVP arena:
 
 - flat platform
 - visible shrinking boundary
+- shrinking boundary pushes fighters toward the center
 - no instant fall-based ring-out as the main rule
 
 Future arenas may add hazards or themes.
@@ -74,8 +75,9 @@ HP can be reduced by:
 
 - attack collision
 - strong impact
-- being outside the shrinking ring for too long
 - falling impact if needed
+
+The shrinking ring itself should not directly deal HP damage in the current design.
 
 ## Shrinking Ring Direction
 
@@ -95,10 +97,12 @@ Start size: 100%
 Shrink start: after 10 seconds
 Minimum size: 50%
 Full shrink time: 60 seconds
-Outside ring: continuous HP damage or strong push inward
+Outside ring: push fighter toward center
 ```
 
-Sprint 1 may implement this as a shrinking rectangular platform or visible boundary.
+Sprint 1 may implement this as a shrinking rectangular boundary.
+
+If a fighter is outside the current ring area, the ring applies an inward force toward the center. The ring should behave like a moving wall that compresses the fight space, not a damage zone.
 
 ## Emergency Fall Direction
 
