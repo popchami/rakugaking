@@ -8,9 +8,10 @@
 
 ## Current Phase
 
-- Phase: Bootstrap
-- Phase Status: In Progress
+- Phase: Design
+- Phase Status: Ready
 - Discovery Status: Complete
+- Bootstrap Status: Complete
 
 ## Confirmed Information
 
@@ -61,13 +62,35 @@ Additional game-specific documents may be added later if needed:
 - Online/API Spec
 - Monetization Spec
 
+## Completed Bootstrap Files
+
+- README.md
+- docs/00_START_HERE.md
+- docs/PROJECT_OVERVIEW.md
+- docs/MVP_SPEC.md
+- docs/FEATURE_SPEC.md
+- docs/DATA_SPEC.md
+- docs/UI_UX_SPEC.md
+- docs/ARCHITECTURE.md
+- docs/AI_RULES.md
+- docs/TEST_PLAN.md
+- docs/HANDOFF.md
+
 ## Next Phase
 
-After Bootstrap documents are created and reviewed, move to Design.
+Design phase is ready.
+
+Recommended next design tasks:
+
+1. Decide first playable MVP scope.
+2. Decide drawing method.
+3. Decide character physics structure.
+4. Decide command system details.
+5. Decide online/sharing implementation staging.
 
 ## Do Not Do Yet
 
-- Do not implement Unity code yet.
+- Do not implement Unity code until the user approves implementation.
 - Do not create final online architecture yet.
 - Do not design detailed monetization pricing yet.
 - Do not treat assumptions as confirmed specifications.
