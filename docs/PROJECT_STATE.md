@@ -9,7 +9,7 @@
 ## Current Phase
 
 - Phase: Implementation
-- Phase Status: Started
+- Phase Status: Sprint 1 Initial Implementation Added
 - Discovery Status: Complete
 - Bootstrap Status: Complete
 - Design Status: Complete
@@ -48,6 +48,11 @@ Programming must not be difficult. The player should choose simple commands rath
   - Online battle
   - Monetization
 
+## Current Sprint
+
+- Sprint: Sprint 1 - Minimum Battle Prototype
+- Status: Initial implementation added
+
 ## Postponed Product Areas
 
 Do not implement these during the current MVP implementation phase:
@@ -59,7 +64,10 @@ Do not implement these during the current MVP implementation phase:
 - User-facing export/import
 - Monetization / payment implementation
 - Multiple character species/body types
-- Full drawing editor
+- Drawing features
+- Drawing-to-physics conversion
+- Command system
+- Full UI
 
 Temporary internal data structures may still consider future online battle, but no online implementation should be built now.
 
@@ -90,33 +98,56 @@ Temporary internal data structures may still consider future online battle, but 
 - docs/ASSET_SPEC.md
 - docs/IMPLEMENTATION_READY_CHECKLIST.md
 - docs/IMPLEMENTATION_PHASE_1.md
+- docs/MINIMUM_IMPLEMENTATION_PLAN.md
+- docs/SPRINT_1_STATUS.md
 
-## Implementation Entry Point
+## Sprint 1 Implementation Added
 
-Start with:
+- Unity minimum project files
+- Battle result model
+- HP system
+- battle character component
+- timer
+- ring-out detection
+- BattleController
+- simple collision damage
+- simple automatic placeholder motion
+- minimal debug HUD
+- editor scene/prefab builder
 
-- `docs/MINIMUM_IMPLEMENTATION_PLAN.md`
+## Current Implementation Entry Point
 
-Then use:
+Open the project in Unity and run:
 
-- `docs/IMPLEMENTATION_PHASE_1.md`
+```txt
+Unity Menu > Rakugaking > Sprint 1 > Build Prototype Battle Scene
+```
+
+Then open:
+
+```txt
+Assets/Rakugaking/Scenes/PrototypeBattle.unity
+```
 
 ## Current Implementation Scope
 
-Build the smallest Unity MVP prototype:
+Build and verify the smallest Unity MVP prototype:
 
 1. Unity project/folder setup.
-2. Prototype battle scene.
+2. Prototype battle scene generation.
 3. Placeholder humanoid fighters.
-4. Simple automatic commands.
+4. Rigidbody, Collider, ConfigurableJoint setup.
 5. HP, timer, ring out.
 6. Battle result.
 
 ## Do Not Do Yet
 
+- Do not implement drawing features.
+- Do not implement drawing-to-physics conversion.
+- Do not implement the command system.
 - Do not implement online battle.
 - Do not implement payment or shop systems.
 - Do not implement multiple character species.
 - Do not implement public character sharing.
-- Do not implement a full drawing editor.
+- Do not implement a full UI.
 - Do not overbuild architecture before the battle prototype works.
