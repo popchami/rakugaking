@@ -1,5 +1,4 @@
 #if UNITY_EDITOR
-using System.IO;
 using Rakugaking.Battle;
 using Rakugaking.Character;
 using Rakugaking.UI;
@@ -109,9 +108,9 @@ namespace Rakugaking.EditorTools
             var root = new GameObject("PlaceholderFighter");
             root.transform.position = position;
 
-            var health = root.AddComponent<Health>();
+            root.AddComponent<Health>();
             var character = root.AddComponent<BattleCharacter>();
-            var motion = root.AddComponent<Sprint1AutoBattleMotion>();
+            root.AddComponent<Sprint1AutoBattleMotion>();
 
             var body = CreatePart("Body", root.transform, new Vector3(0f, 1.2f, 0f), new Vector3(0.7f, 1.2f, 0.35f), 2f);
             var head = CreatePart("Head", root.transform, new Vector3(0f, 2.1f, 0f), new Vector3(0.55f, 0.55f, 0.55f), 1f);
@@ -125,11 +124,6 @@ namespace Rakugaking.EditorTools
             AddJoint(rightArm, body);
             AddJoint(leftLeg, body);
             AddJoint(rightLeg, body);
-
-            foreach (var damage in root.GetComponentsInChildren<Sprint1CollisionDamage>())
-            {
-                damage.enabled = true;
-            }
 
             character.Setup(side);
             return root;
@@ -145,8 +139,8 @@ namespace Rakugaking.EditorTools
 
             var rigidbody = part.AddComponent<Rigidbody>();
             rigidbody.mass = mass;
-            rigidbody.linearDamping = 0.2f;
-            rigidbody.angularDamping = 0.2f;
+            rigidbody.drag = 0.2f;
+            rigidbody.angularDrag = 0.2f;
 
             part.AddComponent<Sprint1CollisionDamage>();
             return rigidbody;
