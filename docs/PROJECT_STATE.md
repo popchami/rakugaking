@@ -9,7 +9,7 @@
 ## Current Phase
 
 - Phase: Design
-- Phase Status: Ready
+- Phase Status: In Progress
 - Discovery Status: Complete
 - Bootstrap Status: Complete
 
@@ -54,9 +54,16 @@ Selected ADeL set:
 
 - Minimum MVP Set
 
-Additional game-specific documents may be added later if needed:
+Additional game-specific documents added during Design:
 
-- Character Spec
+- DESIGN_DECISIONS.md
+- CHARACTER_SPEC.md
+- DRAWING_SPEC.md
+- COMMAND_SPEC.md
+- BATTLE_SPEC.md
+
+Additional documents may be added later if needed:
+
 - Balance Spec
 - Asset Spec
 - Online/API Spec
@@ -76,17 +83,21 @@ Additional game-specific documents may be added later if needed:
 - docs/TEST_PLAN.md
 - docs/HANDOFF.md
 
-## Next Phase
+## Completed Design Decisions
 
-Design phase is ready.
+- First playable MVP is local-first.
+- Online battle remains planned but is staged after local core loop validation.
+- First drawing approach is 2D drawing applied to simple 3D physics parts.
+- First character body type is humanoid only.
+- Commands are simple button/card selections.
+- First playable MVP does not implement payments.
+- Battle uses HP, ring out, and time limit.
 
-Recommended next design tasks:
+## Next Design Tasks
 
-1. Decide first playable MVP scope.
-2. Decide drawing method.
-3. Decide character physics structure.
-4. Decide command system details.
-5. Decide online/sharing implementation staging.
+1. Update architecture around first playable Unity module structure.
+2. Add implementation handoff checklist.
+3. Decide whether Design is complete enough to enter Implementation.
 
 ## Do Not Do Yet
 
