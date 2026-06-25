@@ -104,8 +104,8 @@ namespace Rakugaking.Battle
                 return;
             }
 
-            shrinkingRing.ApplyOutsideRingDamage(fighterA, Time.deltaTime);
-            shrinkingRing.ApplyOutsideRingDamage(fighterB, Time.deltaTime);
+            shrinkingRing.ApplyInwardPush(fighterA);
+            shrinkingRing.ApplyInwardPush(fighterB);
         }
 
         private void CheckHpDefeat()
