@@ -31,24 +31,49 @@ Fields:
 - id
 - partType
 - drawingData
-- meshData or generatedShapeData
+- generatedShapeData
 - colorData
 - size
 - mass
 - connectionPoints
+- physicsValues
 
 Part types for MVP:
 
 - head
 - body
-- leftArm
-- rightArm
+- leftUpperArm
+- leftLowerArm
 - leftHand
+- rightUpperArm
+- rightLowerArm
 - rightHand
-- leftLeg
-- rightLeg
+- leftUpperLeg
+- leftLowerLeg
 - leftFoot
+- rightUpperLeg
+- rightLowerLeg
 - rightFoot
+
+## DrawingPhysicsValues
+
+Represents values generated from drawing data.
+
+Fields:
+
+- boundingWidth
+- boundingHeight
+- filledArea
+- aspectRatio
+- estimatedCenterOfMass
+- normalizedLength
+- normalizedWidth
+- massMultiplier
+- reachMultiplier
+- stabilityMultiplier
+- wobbleMultiplier
+- attackPowerMultiplier
+- movementSpeedMultiplier
 
 ## CommandAssignment
 
@@ -102,15 +127,33 @@ Possible reasons:
 - timeUp
 - physicsStop
 
-## Sharing Data
+## Online Battle Data
 
-Character data should be designed so it can later be:
+Online battle remains planned.
 
-- exported
-- imported
-- uploaded
-- downloaded
-- used in online battle
+Online battle may require temporary transfer of character data inside a match.
+
+This is allowed as battle data exchange, not as a public sharing feature.
+
+Possible fields for future online battle:
+
+- playerId
+- roomId
+- matchId
+- selectedCharacterSnapshot
+- commandSetup
+- battleSettings
+- connectionStatus
+
+## Postponed Sharing Data
+
+The following are postponed and should not be prioritized:
+
+- public character gallery
+- permanent shared character uploads
+- share codes
+- user-facing export/import
+- browsing other players' characters
 
 ## Monetization Data
 
@@ -131,13 +174,16 @@ MVP:
 
 Future:
 
-- cloud save
-- account system
-- character sharing server
+- cloud save if needed
+- account system if needed for online battle or purchases
 - online battle service
+
+Postponed:
+
+- character sharing server
 
 ## Open Questions
 
 - Should drawingData be stored as strokes, textures, meshes, or a combination?
 - Should generated physics values be recalculated every time or saved?
-- How small must character data be for online sharing?
+- How small must character data be for online battle transfer?
