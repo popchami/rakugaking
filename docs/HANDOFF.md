@@ -6,11 +6,13 @@ rakugaking
 
 ## Current Status
 
-ADeL Bootstrap documents have been created.
+ADeL Bootstrap is complete.
+
+Design Phase has defined the first playable MVP and the first implementation plan.
 
 ## Current Phase
 
-- Phase: Bootstrap
+- Phase: Design
 - Status: In Progress
 
 ## Completed
@@ -19,6 +21,13 @@ ADeL Bootstrap documents have been created.
 - Project type selected
 - Minimum MVP Set selected
 - Initial project docs created
+- First playable MVP scope decided
+- Drawing method decided for first MVP
+- Humanoid-only first body type decided
+- Command system direction decided
+- Battle rules decided
+- Unity implementation structure drafted
+- Phase 1 implementation plan created
 
 ## Confirmed Decisions
 
@@ -31,6 +40,10 @@ ADeL Bootstrap documents have been created.
 - Online battle remains in the plan
 - Character sharing remains in the plan
 - Monetization remains in the plan
+- First playable MVP is local-first
+- First drawing approach is 2D drawing applied to simple 3D physics parts
+- First body type is humanoid only
+- Battle uses HP, ring out, and time limit
 
 ## Important Product Direction
 
@@ -54,30 +67,39 @@ The player should not need to write code.
 - docs/AI_RULES.md
 - docs/TEST_PLAN.md
 - docs/HANDOFF.md
+- docs/DESIGN_DECISIONS.md
+- docs/CHARACTER_SPEC.md
+- docs/DRAWING_SPEC.md
+- docs/COMMAND_SPEC.md
+- docs/BATTLE_SPEC.md
+- docs/IMPLEMENTATION_READY_CHECKLIST.md
+- docs/IMPLEMENTATION_PHASE_1.md
 
 ## Remaining Unknowns
 
-- exact drawing method
-- 2D-to-3D conversion approach
-- first online battle format
+- exact strength of drawing size/shape effects
+- first export/import method for character sharing
+- future networking solution
 - final monetization model
 - local vs cloud save timing
-- HP-based vs physics-only win condition
 
 ## Recommended Next Step
 
-Move from Bootstrap to Design after user approval.
+Decide whether to enter Implementation Phase.
 
-In Design phase, decide:
-
-1. first playable MVP scope
-2. drawing method
-3. character physics structure
-4. command system details
-5. online/sharing implementation staging
+If implementation is approved, start with `docs/IMPLEMENTATION_PHASE_1.md`.
 
 ## Instruction for Next AI
 
 Read `docs/00_START_HERE.md` first.
+
+Then read:
+
+1. `docs/PROJECT_STATE.md`
+2. `docs/MVP_SPEC.md`
+3. `docs/DESIGN_DECISIONS.md`
+4. `docs/ARCHITECTURE.md`
+5. `docs/IMPLEMENTATION_READY_CHECKLIST.md`
+6. `docs/IMPLEMENTATION_PHASE_1.md`
 
 Do not start Unity implementation until the user approves the Implementation phase.
