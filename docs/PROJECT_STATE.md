@@ -9,7 +9,7 @@
 ## Current Phase
 
 - Phase: Design
-- Phase Status: In Progress
+- Phase Status: Ready for Implementation Approval
 - Discovery Status: Complete
 - Bootstrap Status: Complete
 
@@ -61,6 +61,8 @@ Additional game-specific documents added during Design:
 - DRAWING_SPEC.md
 - COMMAND_SPEC.md
 - BATTLE_SPEC.md
+- IMPLEMENTATION_READY_CHECKLIST.md
+- IMPLEMENTATION_PHASE_1.md
 
 Additional documents may be added later if needed:
 
@@ -92,12 +94,13 @@ Additional documents may be added later if needed:
 - Commands are simple button/card selections.
 - First playable MVP does not implement payments.
 - Battle uses HP, ring out, and time limit.
+- First Unity implementation starts with placeholder physics battle before drawing.
 
-## Next Design Tasks
+## Implementation Entry Point
 
-1. Update architecture around first playable Unity module structure.
-2. Add implementation handoff checklist.
-3. Decide whether Design is complete enough to enter Implementation.
+If the user approves Implementation Phase, start with:
+
+- `docs/IMPLEMENTATION_PHASE_1.md`
 
 ## Do Not Do Yet
 
