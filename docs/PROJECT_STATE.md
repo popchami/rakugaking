@@ -8,10 +8,11 @@
 
 ## Current Phase
 
-- Phase: Design
-- Phase Status: Ready for Implementation Approval
+- Phase: Implementation
+- Phase Status: Started
 - Discovery Status: Complete
 - Bootstrap Status: Complete
+- Design Status: Complete
 
 ## Confirmed Information
 
@@ -49,40 +50,20 @@ Programming must not be difficult. The player should choose simple commands rath
 
 ## Postponed Product Areas
 
+Do not implement these during the current MVP implementation phase:
+
+- Online battle
 - Character sharing
 - Public character gallery
 - Share codes
 - User-facing export/import
+- Monetization / payment implementation
+- Multiple character species/body types
+- Full drawing editor
 
-Temporary character data transfer may still be needed inside online battles, but this is not treated as a sharing feature.
+Temporary internal data structures may still consider future online battle, but no online implementation should be built now.
 
-## Template Selection
-
-Selected ADeL set:
-
-- Minimum MVP Set
-
-Additional game-specific documents added during Design:
-
-- DESIGN_DECISIONS.md
-- CHARACTER_SPEC.md
-- DRAWING_SPEC.md
-- DRAWING_TO_PHYSICS_SPEC.md
-- COMMAND_SPEC.md
-- BATTLE_SPEC.md
-- BALANCE_SPEC.md
-- ONLINE_SPEC.md
-- MONETIZATION_SPEC.md
-- SCENE_FLOW_SPEC.md
-- UI_WIREFRAME_SPEC.md
-- IMPLEMENTATION_READY_CHECKLIST.md
-- IMPLEMENTATION_PHASE_1.md
-
-Additional documents may be added later if needed:
-
-- Asset Spec
-
-## Completed Bootstrap Files
+## Completed Design Documents
 
 - README.md
 - docs/00_START_HERE.md
@@ -95,32 +76,47 @@ Additional documents may be added later if needed:
 - docs/AI_RULES.md
 - docs/TEST_PLAN.md
 - docs/HANDOFF.md
-
-## Completed Design Decisions
-
-- First playable MVP is local-first.
-- Online battle remains planned but is staged after local core loop validation.
-- Character sharing is postponed.
-- First drawing approach is 2D drawing applied to simple 3D physics parts.
-- First character body type is humanoid only.
-- Commands are simple button/card selections.
-- First playable MVP does not implement payments.
-- Battle uses HP, ring out, and time limit.
-- First Unity implementation starts with placeholder physics battle before drawing.
-- Drawing-to-physics conversion has an initial ruleset.
-- Scene flow is defined.
-- Basic UI wireframes are defined.
+- docs/DESIGN_DECISIONS.md
+- docs/CHARACTER_SPEC.md
+- docs/DRAWING_SPEC.md
+- docs/DRAWING_TO_PHYSICS_SPEC.md
+- docs/COMMAND_SPEC.md
+- docs/BATTLE_SPEC.md
+- docs/BALANCE_SPEC.md
+- docs/ONLINE_SPEC.md
+- docs/MONETIZATION_SPEC.md
+- docs/SCENE_FLOW_SPEC.md
+- docs/UI_WIREFRAME_SPEC.md
+- docs/ASSET_SPEC.md
+- docs/IMPLEMENTATION_READY_CHECKLIST.md
+- docs/IMPLEMENTATION_PHASE_1.md
 
 ## Implementation Entry Point
 
-If the user approves Implementation Phase, start with:
+Start with:
+
+- `docs/MINIMUM_IMPLEMENTATION_PLAN.md`
+
+Then use:
 
 - `docs/IMPLEMENTATION_PHASE_1.md`
 
+## Current Implementation Scope
+
+Build the smallest Unity MVP prototype:
+
+1. Unity project/folder setup.
+2. Prototype battle scene.
+3. Placeholder humanoid fighters.
+4. Simple automatic commands.
+5. HP, timer, ring out.
+6. Battle result.
+
 ## Do Not Do Yet
 
-- Do not implement Unity code until the user approves implementation.
-- Do not create final online implementation yet.
-- Do not design detailed monetization pricing yet.
-- Do not implement character sharing.
-- Do not treat assumptions as confirmed specifications.
+- Do not implement online battle.
+- Do not implement payment or shop systems.
+- Do not implement multiple character species.
+- Do not implement public character sharing.
+- Do not implement a full drawing editor.
+- Do not overbuild architecture before the battle prototype works.
