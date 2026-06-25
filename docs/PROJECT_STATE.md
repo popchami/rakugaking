@@ -45,8 +45,16 @@ Programming must not be difficult. The player should choose simple commands rath
 - Primary Type: Game
 - Secondary Considerations:
   - Online battle
-  - Character sharing
   - Monetization
+
+## Postponed Product Areas
+
+- Character sharing
+- Public character gallery
+- Share codes
+- User-facing export/import
+
+Temporary character data transfer may still be needed inside online battles, but this is not treated as a sharing feature.
 
 ## Template Selection
 
@@ -59,16 +67,17 @@ Additional game-specific documents added during Design:
 - DESIGN_DECISIONS.md
 - CHARACTER_SPEC.md
 - DRAWING_SPEC.md
+- DRAWING_TO_PHYSICS_SPEC.md
 - COMMAND_SPEC.md
 - BATTLE_SPEC.md
+- BALANCE_SPEC.md
+- ONLINE_SPEC.md
 - IMPLEMENTATION_READY_CHECKLIST.md
 - IMPLEMENTATION_PHASE_1.md
 
 Additional documents may be added later if needed:
 
-- Balance Spec
 - Asset Spec
-- Online/API Spec
 - Monetization Spec
 
 ## Completed Bootstrap Files
@@ -89,12 +98,14 @@ Additional documents may be added later if needed:
 
 - First playable MVP is local-first.
 - Online battle remains planned but is staged after local core loop validation.
+- Character sharing is postponed.
 - First drawing approach is 2D drawing applied to simple 3D physics parts.
 - First character body type is humanoid only.
 - Commands are simple button/card selections.
 - First playable MVP does not implement payments.
 - Battle uses HP, ring out, and time limit.
 - First Unity implementation starts with placeholder physics battle before drawing.
+- Drawing-to-physics conversion has an initial ruleset.
 
 ## Implementation Entry Point
 
@@ -105,6 +116,7 @@ If the user approves Implementation Phase, start with:
 ## Do Not Do Yet
 
 - Do not implement Unity code until the user approves implementation.
-- Do not create final online architecture yet.
+- Do not create final online implementation yet.
 - Do not design detailed monetization pricing yet.
+- Do not implement character sharing.
 - Do not treat assumptions as confirmed specifications.
