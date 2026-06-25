@@ -1,16 +1,35 @@
 # rakugaking
 
-rakugaking is a new project.
+rakugaking is a Unity-based 3D drawing battle game project.
 
-This repository is waiting for Project Discovery before AI Development Library documents are generated.
+Players draw character parts, assign simple behavior commands, and let their characters fight automatically in chaotic physics-based battles.
 
-## Current Status
+## Core Concept
 
-- Project purpose: Not confirmed yet
-- Project type: Not selected yet
-- Docs generation: Not started
-- Implementation: Not started
+Draw, build, program, and laugh.
 
-## Rule
+The player does not directly control the character during battle. The fun comes from the gap between the intended behavior and the messy physical result.
 
-Do not generate project-specific docs until the project purpose, target user, and MVP goal are confirmed.
+## ADeL Status
+
+This project uses ADeL: AI Development Library.
+
+- Current Phase: Bootstrap
+- Discovery Status: Complete
+- Primary Project Type: Game
+- Secondary Considerations: Online features, character sharing, monetization
+- Technology Stack: Unity
+
+## Start Here
+
+AI assistants should read:
+
+1. `docs/00_START_HERE.md`
+2. `docs/PROJECT_STATE.md`
+3. `docs/PROJECT_OVERVIEW.md`
+4. `docs/MVP_SPEC.md`
+5. `docs/AI_RULES.md`
+
+## Important Rule
+
+Do not start implementation before the design documents are reviewed and the next phase is explicitly approved.
