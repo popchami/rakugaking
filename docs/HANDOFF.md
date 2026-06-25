@@ -6,14 +6,14 @@ rakugaking
 
 ## Current Status
 
-ADeL Bootstrap is complete.
+ADeL Discovery, Bootstrap, and Design phases are complete.
 
-Design Phase has defined the first playable MVP and the first implementation plan.
+Implementation Phase has started.
 
 ## Current Phase
 
-- Phase: Design
-- Status: In Progress
+- Phase: Implementation
+- Status: Started
 
 ## Completed
 
@@ -27,6 +27,10 @@ Design Phase has defined the first playable MVP and the first implementation pla
 - Command system direction decided
 - Battle rules decided
 - Unity implementation structure drafted
+- Scene flow defined
+- UI wireframes defined
+- Drawing-to-physics rules drafted
+- Balance direction drafted
 - Phase 1 implementation plan created
 
 ## Confirmed Decisions
@@ -37,13 +41,25 @@ Design Phase has defined the first playable MVP and the first implementation pla
 - Target users: children and adults
 - Core idea: draw 3D characters, assign simple commands, and battle automatically
 - Programming must be easy and command-based
-- Online battle remains in the plan
-- Character sharing remains in the plan
-- Monetization remains in the plan
 - First playable MVP is local-first
+- First implementation starts with placeholder physics battle before drawing
 - First drawing approach is 2D drawing applied to simple 3D physics parts
 - First body type is humanoid only
 - Battle uses HP, ring out, and time limit
+- Online battle remains a future product goal but is not implemented now
+- Character sharing is postponed
+- Monetization remains a future product goal but is not implemented now
+
+## Explicitly Not Implemented Now
+
+- Online battle
+- Payment / shop systems
+- Multiple character species/body types
+- Character sharing
+- Public character gallery
+- Share codes
+- User-facing export/import
+- Full drawing editor
 
 ## Important Product Direction
 
@@ -70,36 +86,42 @@ The player should not need to write code.
 - docs/DESIGN_DECISIONS.md
 - docs/CHARACTER_SPEC.md
 - docs/DRAWING_SPEC.md
+- docs/DRAWING_TO_PHYSICS_SPEC.md
 - docs/COMMAND_SPEC.md
 - docs/BATTLE_SPEC.md
+- docs/BALANCE_SPEC.md
+- docs/ONLINE_SPEC.md
+- docs/MONETIZATION_SPEC.md
+- docs/SCENE_FLOW_SPEC.md
+- docs/UI_WIREFRAME_SPEC.md
+- docs/ASSET_SPEC.md
 - docs/IMPLEMENTATION_READY_CHECKLIST.md
 - docs/IMPLEMENTATION_PHASE_1.md
+- docs/MINIMUM_IMPLEMENTATION_PLAN.md
+
+## Current Implementation Entry Point
+
+Start with:
+
+1. `docs/PROJECT_STATE.md`
+2. `docs/MINIMUM_IMPLEMENTATION_PLAN.md`
+3. `docs/IMPLEMENTATION_PHASE_1.md`
+4. `docs/ARCHITECTURE.md`
+5. `docs/TEST_PLAN.md`
+
+## Current Implementation Goal
+
+Create a Unity prototype where two placeholder humanoid fighters automatically battle in a simple arena and produce a result.
 
 ## Remaining Unknowns
 
 - exact strength of drawing size/shape effects
-- first export/import method for character sharing
 - future networking solution
 - final monetization model
 - local vs cloud save timing
 
-## Recommended Next Step
-
-Decide whether to enter Implementation Phase.
-
-If implementation is approved, start with `docs/IMPLEMENTATION_PHASE_1.md`.
-
 ## Instruction for Next AI
 
-Read `docs/00_START_HERE.md` first.
+Do not start with online, monetization, multiple species, or full drawing editor.
 
-Then read:
-
-1. `docs/PROJECT_STATE.md`
-2. `docs/MVP_SPEC.md`
-3. `docs/DESIGN_DECISIONS.md`
-4. `docs/ARCHITECTURE.md`
-5. `docs/IMPLEMENTATION_READY_CHECKLIST.md`
-6. `docs/IMPLEMENTATION_PHASE_1.md`
-
-Do not start Unity implementation until the user approves the Implementation phase.
+Start with the smallest playable Unity physics battle prototype.
