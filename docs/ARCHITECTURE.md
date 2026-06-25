@@ -12,7 +12,9 @@ Build the game in stages.
 
 Do not start with complex online systems before the core drawing-to-battle loop works.
 
-However, do not design the project in a way that blocks online battle, character sharing, or monetization later.
+However, do not design the project in a way that blocks online battle or monetization later.
+
+Character sharing is postponed and should not drive early architecture.
 
 ## First Implementation Architecture
 
@@ -73,6 +75,7 @@ Responsibilities:
 - capture player drawing input
 - store drawing data
 - generate part textures or simple part shapes
+- calculate drawing-to-physics values
 - provide part preview
 
 Suggested classes:
@@ -81,6 +84,8 @@ Suggested classes:
 - DrawingInputHandler
 - PartDrawingData
 - PartTextureGenerator
+- DrawingPhysicsCalculator
+- DrawingPhysicsValues
 
 ## 3. Character Module
 
@@ -142,8 +147,8 @@ Suggested classes:
 Responsibilities:
 
 - save characters locally
-- load characters
-- prepare export/import format for sharing
+- load characters locally
+- serialize character data for internal use
 
 Suggested classes:
 
@@ -170,7 +175,7 @@ Suggested classes:
 - BattleHudView
 - ResultView
 
-## 8. Online Module
+## 8. Online Battle Module
 
 Status:
 
@@ -178,12 +183,18 @@ Status:
 
 Responsibilities for future phases:
 
-- upload character data
-- download shared characters
+- create or join private rooms
 - match players
-- synchronize or simulate battles
+- transfer selected character data temporarily inside a battle session
+- synchronize commands or battle state
+- handle disconnects
 
-Online should be planned early but implemented after the local battle loop is validated unless explicitly approved.
+Not responsibilities:
+
+- public character gallery
+- share codes
+- permanent character uploads
+- browsing other players' characters
 
 ## 9. Monetization Module
 
@@ -208,12 +219,12 @@ Monetization must not affect battle strength directly.
 5. command execution prototype
 6. battle result logic
 7. drawing input prototype
-8. drawing-to-part visual application
-9. character assembly from drawn parts
-10. local save/load
-11. character vs saved character battle
-12. export/import-ready character data
-13. online/sharing design refinement
+8. drawing-to-physics calculator
+9. drawing-to-part visual application
+10. character assembly from drawn parts
+11. local save/load
+12. character vs saved character battle
+13. online battle design refinement
 14. monetization design refinement
 
 ## Design Risks
@@ -239,9 +250,9 @@ Real-time physics synchronization can be difficult.
 
 Possible safer options:
 
-- asynchronous battle
-- shared character data with local simulation
-- deterministic replay-style battle
+- host-authoritative simulation
+- input/command synchronization
+- temporary character data transfer inside the match
 
 ## Current Recommendation
 
@@ -250,5 +261,5 @@ For first playable MVP, prefer:
 - local-first battle
 - simple humanoid skeleton
 - drawn textures or simple generated shapes
+- drawing-to-physics values
 - command buttons rather than visual scripting
-- sharing-ready character data format
