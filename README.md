@@ -1,17 +1,16 @@
 # rakugaking
 
-rakugaking is a new project initialized with AI Development Library.
+rakugaking is a new project.
 
-This repository uses `docs/00_START_HERE.md` as the first file AI should read before making changes.
+This repository is waiting for Project Discovery before AI Development Library documents are generated.
 
-## Development Rule
+## Current Status
 
-Do not start implementation until the project overview and MVP specification are filled.
+- Project purpose: Not confirmed yet
+- Project type: Not selected yet
+- Docs generation: Not started
+- Implementation: Not started
 
-## First Reading Order
+## Rule
 
-1. `docs/00_START_HERE.md`
-2. `docs/PROJECT_OVERVIEW.md`
-3. `docs/MVP_SPEC.md`
-4. `docs/AI_RULES.md`
-5. `docs/HANDOFF.md`
+Do not generate project-specific docs until the project purpose, target user, and MVP goal are confirmed.
