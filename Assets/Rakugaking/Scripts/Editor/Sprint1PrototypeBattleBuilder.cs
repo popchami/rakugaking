@@ -44,7 +44,7 @@ namespace Rakugaking.EditorTools
 
             var battleRoot = new GameObject("BattleController");
             var controller = battleRoot.AddComponent<BattleController>();
-            battleRoot.AddComponent<RingOutDetector>();
+            var shrinkingRing = battleRoot.AddComponent<ShrinkingRingController>();
             controller.SetFighters(fighterA.GetComponent<BattleCharacter>(), fighterB.GetComponent<BattleCharacter>());
 
             var hud = new GameObject("BattleHud");
