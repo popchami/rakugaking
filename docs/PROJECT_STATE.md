@@ -72,13 +72,15 @@ Additional game-specific documents added during Design:
 - BATTLE_SPEC.md
 - BALANCE_SPEC.md
 - ONLINE_SPEC.md
+- MONETIZATION_SPEC.md
+- SCENE_FLOW_SPEC.md
+- UI_WIREFRAME_SPEC.md
 - IMPLEMENTATION_READY_CHECKLIST.md
 - IMPLEMENTATION_PHASE_1.md
 
 Additional documents may be added later if needed:
 
 - Asset Spec
-- Monetization Spec
 
 ## Completed Bootstrap Files
 
@@ -106,6 +108,8 @@ Additional documents may be added later if needed:
 - Battle uses HP, ring out, and time limit.
 - First Unity implementation starts with placeholder physics battle before drawing.
 - Drawing-to-physics conversion has an initial ruleset.
+- Scene flow is defined.
+- Basic UI wireframes are defined.
 
 ## Implementation Entry Point
 
