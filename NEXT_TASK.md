@@ -26,9 +26,27 @@ rakugaking/
     └── Rakugaking/
 ```
 
+A Unity project folder guide has been added at:
+
+```text
+unity/Rakugaking/README.md
+```
+
+A Codex prompt for Unity initialization has been added at:
+
+```text
+docs/CODEX_UNITY_INIT_PROMPT.md
+```
+
 ## Next Task
 
-Initialize the Unity project in `unity/Rakugaking/`.
+Initialize the Unity project in `unity/Rakugaking/` using an environment that can run Unity.
+
+## Important Note
+
+GitHub file creation alone cannot fully create and verify a real Unity project.
+
+This task requires Unity Editor, Unity Hub, Unity command line, Codex with Unity support, or another environment that can create/open Unity projects.
 
 ## Goal
 
@@ -41,8 +59,9 @@ This task may include:
 - Confirming Unity version
 - Confirming project template
 - Creating the Unity project in `unity/Rakugaking/`
-- Adding Unity `.gitignore` if needed
-- Creating the minimum Unity scene only if project initialization requires it
+- Verifying the project opens in Unity
+- Verifying Play mode starts
+- Verifying there are no red Console errors
 
 ## Out of Scope
 
@@ -58,7 +77,7 @@ Do not add multiple new specification documents.
 
 ## Proposed Direction
 
-Use Unity 6 LTS or the currently available stable Unity LTS version unless there is a strong reason not to.
+Use a stable Unity LTS version available in the development environment.
 
 Use a 3D project template because rakugaking is intended to involve 3D characters and physics-based chaotic movement.
 
