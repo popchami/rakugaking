@@ -36,14 +36,29 @@ Unity is the main production environment.
 - ADeL flow is available
 - ADeL for Unity repository has been created as an initial draft / reference
 - Decision made: real development progress should be managed inside this rakugaking repository
+- Unity project structure has been decided
+- `docs/` directory has been created
+- `unity/Rakugaking/` directory has been created as the Unity project location
 
 ## Not Completed Yet
 
-- Unity project structure is not confirmed
 - Unity version is not confirmed
+- Unity project files are not created yet
 - First Unity scene is not created
 - Playable prototype is not created
 - Release path is not defined in detail
+
+## Repository Structure
+
+```text
+rakugaking/
+├── PROJECT_STATE.md
+├── HANDOFF.md
+├── NEXT_TASK.md
+├── docs/
+└── unity/
+    └── Rakugaking/
+```
 
 ## Current Rule
 
