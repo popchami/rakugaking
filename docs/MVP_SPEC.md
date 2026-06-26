@@ -12,133 +12,145 @@ This does not remove online battle or monetization from the product plan. It mea
 
 Character sharing is postponed.
 
+## MVP Core Loop
+
+The MVP should focus on this loop only:
+
+1. Choose a body type.
+2. Draw or modify body parts.
+3. Preview movement.
+4. Save character.
+5. Battle.
+6. Edit and try again.
+
 ## MVP Scope
 
-### 1. Drawing Character Parts
+### 1. Character Editor
 
-The player can draw a simple humanoid character by parts.
+The player can create a character using a simple part-based editor.
 
-MVP body parts:
+The editor uses X/Y axis guides and a forward direction arrow.
+
+The player edits from base shapes by:
+
+- adding volume / meat
+- shaving / erasing volume
+- painting color
+
+### 2. Simple Mode First
+
+The MVP should prioritize Simple Mode so children can quickly draw and play.
+
+Simple humanoid parts:
 
 - head
 - body
-- left upper arm
-- left lower arm
-- left hand
-- right upper arm
-- right lower arm
-- right hand
-- left upper leg
-- left lower leg
-- left foot
-- right upper leg
-- right lower leg
-- right foot
+- left arm
+- right arm
+- left leg
+- right leg
 
-If full separation is too complex for the first prototype, it may temporarily use simplified arms and legs, but the data design must allow later separation.
+Creator Mode with finer part splitting is planned later but should not block the first playable MVP.
 
-### 2. Drawing Method
+### 3. Drawing Tools
+
+Planned editor tools:
+
+- crayon
+- colored pencil
+- marker
+- brush
+- fill
+- eraser
+
+Each tool can support thickness levels later:
+
+- very thin
+- thin
+- normal
+- thick
+- very thick
+
+The first editor implementation may start with fewer tools if needed.
+
+### 4. Color Palette
+
+The editor uses a palette.
+
+Color count has an upper limit to avoid heavy rendering and data size issues.
+
+### 5. Drawing Method
 
 The first MVP uses a practical drawing approach:
 
-- player draws 2D shapes or textures
+- player modifies simple base shapes
 - drawings are applied to simple 3D physics parts
 - part size/shape may influence physics values
 
 Direct freeform 3D sculpting is not part of the first playable MVP.
 
-### 3. Character Assembly
+### 6. Character Assembly
 
 The drawn parts are assembled into a simple physics-based humanoid character.
 
 The MVP should prioritize readable behavior over perfect anatomical accuracy.
 
-### 4. Simple Command Assignment
+### 7. Preview
 
-The player can assign simple repeated commands to major parts.
+The editor includes a preview step.
 
-MVP commands:
+Preview should help players quickly test whether the character moves in a funny or usable way.
 
-- punch
-- swing
-- guard
-- kick
+MVP preview targets:
+
+- idle
+- move forward
 - jump
-- crouch
+- punch
+- kick
 
-The command system must not require writing code.
+### 8. Character Management
 
-### 5. Automatic Battle
+The character system should eventually support:
+
+- save
+- load
+- edit
+- copy
+- delete
+
+For the first playable MVP, save/load should be prioritized before copy/delete.
+
+### 9. Automatic Battle
 
 Two characters can battle automatically.
 
 Minimum battle modes:
 
-- player-drawn character vs simple test opponent
-- player-drawn character vs another saved local character
+- player-created character vs simple test opponent
+- player-created character vs another saved local character
 
-Online battle is an important product goal. During MVP design, architecture should avoid choices that make online battle impossible later.
+Online battle is a future product goal. It is not implemented in the current MVP implementation phase.
 
-### 6. Win/Lose Result
+### 10. Win/Lose Result
 
 The MVP must show a simple battle result.
 
 Result conditions:
 
 - HP reaches 0
-- character falls out of arena
 - time limit ends and remaining HP decides winner
+- emergency fall below stage ends battle as a safety rule
+
+The main arena pressure rule is a shrinking ring that pushes fighters toward the center.
 
 Recommended first time limit:
 
 - 60 seconds
 
-## Online Battle Direction
-
-Online battle remains in the product plan.
-
-Implementation staging:
-
-1. local battle
-2. local saved character battle
-3. private room online battle design
-4. random matchmaking design
-5. real-time online battle if technically feasible
-
-This staging is an implementation strategy, not a removal of online battle.
-
-## Character Sharing Direction
-
-Character sharing is postponed.
-
-Postponed items:
-
-- public character gallery
-- share codes
-- user-facing character export/import
-- browsing other players' characters
-- permanent shared character uploads
-
-Online battle may still require temporary transfer of character data inside a match. This is allowed as part of online battle and is not treated as a sharing feature.
-
-## Monetization Direction
-
-Monetization remains in the product plan.
-
-The first playable MVP does not implement payment, but it should avoid designs that block monetization later.
-
-Possible paid areas:
-
-- extra character slots
-- extra body types
-- cosmetic effects
-- special drawing tools
-
-Pay-to-win should be avoided.
-
 ## Out of Scope for First Playable MVP
 
-These are delayed until after the first playable MVP unless explicitly approved.
+These are delayed unless explicitly approved.
 
 - direct freeform 3D sculpting
 - real-time online battle
@@ -147,10 +159,17 @@ These are delayed until after the first playable MVP unless explicitly approved.
 - share codes
 - user-facing export/import
 - payment implementation
+- strategy/personality setting
+- replay editor
+- medals/achievements
+- match result sharing
+- GIF/video export
+- challenge/theme mode
+- random generation
+- part lock
 - story mode
 - campaign mode
 - stage editor
-- replay editor
 - 3+ player battle
 - advanced visual scripting
 - complex AI behavior trees
@@ -163,7 +182,8 @@ The MVP should be fun even when it is messy.
 Required quality:
 
 - drawing a character feels understandable
-- assigning commands feels easy
+- simple mode lets players create quickly
+- preview helps players test and fix
 - battle starts without complex setup
 - character movement is funny and readable
 - at least one full battle can finish with a result
@@ -173,6 +193,7 @@ Required quality:
 
 - `docs/DESIGN_DECISIONS.md`
 - `docs/CHARACTER_SPEC.md`
+- `docs/CHARACTER_EDITOR_SPEC.md`
 - `docs/DRAWING_SPEC.md`
 - `docs/DRAWING_TO_PHYSICS_SPEC.md`
 - `docs/COMMAND_SPEC.md`
